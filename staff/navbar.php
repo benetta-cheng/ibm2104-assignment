@@ -38,7 +38,7 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="logout.php">Logout</a>
             </li>
             <li class="nav-item">
                 <i class="fas fa-3x fa-user-circle"></i>

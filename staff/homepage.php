@@ -1,3 +1,4 @@
+<?php require('validateLogin.php') ?>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 

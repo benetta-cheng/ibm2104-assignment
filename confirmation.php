@@ -4,6 +4,7 @@ if (isset($_POST['email'])) {
     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $_SESSION['contactEmail'] = $_POST['email'];
         header('Location: payment.php');
+        exit();
     } else {
         $emailInvalid = true;
     }
