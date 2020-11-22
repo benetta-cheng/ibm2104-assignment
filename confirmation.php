@@ -182,7 +182,7 @@ if (isset($_POST['email'])) {
                             $totalPrice += $price;
                             echo "<tr>";
                             echo "<td>" . $seats['departFlight'][0] . " x First Class Seat</td>";
-                            echo "<td class='text-right'>" . $price . " MYR</td>";
+                            echo "<td class='text-right'>" . number_format($price, 2) . " MYR</td>";
                             echo "</tr>";
                         }
                         if ($seats['departFlight'][1] > 0) {
@@ -190,7 +190,7 @@ if (isset($_POST['email'])) {
                             $totalPrice += $price;
                             echo "<tr>";
                             echo "<td>" . $seats['departFlight'][1] . " x Business Class Seat</td>";
-                            echo "<td class='text-right'>" . $price . " MYR</td>";
+                            echo "<td class='text-right'>" . number_format($price, 2) . " MYR</td>";
                             echo "</tr>";
                         }
                         if ($seats['departFlight'][2] > 0) {
@@ -198,7 +198,7 @@ if (isset($_POST['email'])) {
                             $totalPrice += $price;
                             echo "<tr>";
                             echo "<td>" . $seats['departFlight'][2] . " x Economy Class Seat</td>";
-                            echo "<td class='text-right'>" . $price . " MYR</td>";
+                            echo "<td class='text-right'>" . number_format($price, 2) . " MYR</td>";
                             echo "</tr>";
                         }
                         foreach ($baggages['departFlight'] as $baggageKey => $quantity) {
@@ -207,7 +207,7 @@ if (isset($_POST['email'])) {
                                 $totalPrice += $price;
                                 echo "<tr>";
                                 echo "<td>$quantity x " . $baggageSelections[$baggageKey]['text'] . " baggage</td>";
-                                echo "<td class='text-right'>" . $price . " MYR</td>";
+                                echo "<td class='text-right'>" . number_format($price, 2) . " MYR</td>";
                                 echo "</tr>";
                             }
                         }
@@ -229,7 +229,7 @@ if (isset($_POST['email'])) {
                                 $totalPrice += $price;
                                 echo "<tr>";
                                 echo "<td>" . $seats['returnFlight'][0] . " x First Class Seat</td>";
-                                echo "<td class='text-right'>" . $price . " MYR</td>";
+                                echo "<td class='text-right'>" . number_format($price, 2) . " MYR</td>";
                                 echo "</tr>";
                             }
                             if ($seats['returnFlight'][1] > 0) {
@@ -237,7 +237,7 @@ if (isset($_POST['email'])) {
                                 $totalPrice += $price;
                                 echo "<tr>";
                                 echo "<td>" . $seats['returnFlight'][1] . " x Business Class Seat</td>";
-                                echo "<td class='text-right'>" . $price . " MYR</td>";
+                                echo "<td class='text-right'>" . number_format($price, 2) . " MYR</td>";
                                 echo "</tr>";
                             }
                             if ($seats['returnFlight'][2] > 0) {
@@ -245,7 +245,7 @@ if (isset($_POST['email'])) {
                                 $totalPrice += $price;
                                 echo "<tr>";
                                 echo "<td>" . $seats['returnFlight'][2] . " x Economy Class Seat</td>";
-                                echo "<td class='text-right'>" . $price . " MYR</td>";
+                                echo "<td class='text-right'>" . number_format($price, 2) . " MYR</td>";
                                 echo "</tr>";
                             }
                             foreach ($baggages['returnFlight'] as $baggageKey => $quantity) {
@@ -254,7 +254,7 @@ if (isset($_POST['email'])) {
                                     $totalPrice += $price;
                                     echo "<tr>";
                                     echo "<td>$quantity x " . $baggageSelections[$baggageKey]['text'] . " baggage</td>";
-                                    echo "<td class='text-right'>" . $price . " MYR</td>";
+                                    echo "<td class='text-right'>" . number_format($price, 2) . " MYR</td>";
                                     echo "</tr>";
                                 }
                             }
@@ -263,12 +263,12 @@ if (isset($_POST['email'])) {
                     <?php } ?>
                 </div>
                 <div class="modal-footer">
-                    <h5>Total Price: <?php echo $totalPrice; ?> MYR</h5>
+                    <h5>Total Price: <?php echo number_format($totalPrice, 2); ?> MYR</h5>
                 </div>
             </div>
         </div>
     </div>
-    <h3 style="cursor: pointer;" data-toggle="modal" data-target="#bookingDetailsModal">Total Price: <?php echo $totalPrice; ?> MYR (Click to view details)</h3>
+    <h3 style="cursor: pointer;" data-toggle="modal" data-target="#bookingDetailsModal">Total Price: <?php echo number_format($totalPrice, 2); ?> MYR (Click to view details)</h3>
 
     <form class="mb-3 mt-4" action="confirmation.php" method="POST">
         <div class="form-group col-3 pl-0">
