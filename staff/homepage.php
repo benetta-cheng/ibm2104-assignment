@@ -15,20 +15,22 @@
                 <div class="card-body">
                     <h5 class="card-title">Flights</h5>
                     <p class="card-text">Add and update the flight records as well as the flight schedules in this module</p>
-                    <div>
+                    <div class="btn-group">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                             Flight
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Add Flight</a>
-                            <a class="dropdown-item" href="#">Update Flight</a>
+                            <a class="dropdown-item" href="flight.php">Add Flight</a>
+                            <a class="dropdown-item" href="flight-search.php">Search Flight</a>
                         </div>
+                    </div>
+                    <div class="btn-group">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                             Flight Schedule
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Add Flight Schedule</a>
-                            <a class="dropdown-item" href="#">Update Flight Schedule</a>
+                            <a class="dropdown-item" href="flight-schedule.php">Add Flight Schedule</a>
+                            <a class="dropdown-item" href="flight-schedule-search.php">Search Flight Schedule</a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +44,7 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Add Ticket</a>
-                        <a class="dropdown-item" href="#">Update Ticket</a>
+                        <a class="dropdown-item" href="#">Search Ticket</a>
                         <a class="dropdown-item" href="#">Update Ticket Classes</a>
                     </div>
                 </div>

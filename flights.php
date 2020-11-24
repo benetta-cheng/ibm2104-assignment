@@ -61,8 +61,8 @@
         $arrivalLocation = $_GET['arrivalLocation'];
         $departDate = date("Y-m-d", strtotime($_GET['departDate']));
 
-        // Select all flight schedules that still have enough seats for the number of guests
-        $matchingDepartFlightSchedules = $connection->query("SELECT flight_schedules.*, flights.departure, flights.arrival, flights.capacity, flights.type, (SELECT COUNT(*) FROM flight_tickets WHERE flight_tickets.schedule_no = flight_schedules.id) AS ticketNum FROM flight_schedules INNER JOIN flights ON flight_schedules.flight_no = flights.id WHERE DATE(flight_schedules.depart_dateTime) = '$departDate' AND flights.departure = '$departLocation' AND flights.arrival = '$arrivalLocation' HAVING ticketNum + $guestNumber < flights.capacity");
+        // Select all flight schedules that still have enough seats for the number of guests and have not taken off
+        $matchingDepartFlightSchedules = $connection->query("SELECT flight_schedules.*, flights.departure, flights.arrival, flights.capacity, flights.type, (SELECT COUNT(*) FROM flight_tickets WHERE flight_tickets.schedule_no = flight_schedules.id) AS ticketNum FROM flight_schedules INNER JOIN flights ON flight_schedules.flight_no = flights.id WHERE DATE(flight_schedules.depart_dateTime) = '$departDate' AND flights.departure = '$departLocation' AND flights.arrival = '$arrivalLocation' AND (flight_schedules.status = 'Scheduled' OR flight_schedules.status = 'Delayed') HAVING ticketNum + $guestNumber < flights.capacity");
 
         if ($matchingDepartFlightSchedules->num_rows > 0) {
             while ($flightSchedule = $matchingDepartFlightSchedules->fetch_assoc()) {

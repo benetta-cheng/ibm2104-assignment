@@ -78,7 +78,7 @@
 
             $flightCapacity = $flightInfo['capacity'];
             if ($flightInfo['type'] == 'Domestic') {
-                $numOfRow = ceil($flightCapacity / 6);
+                $numOfRow = $flightCapacity / 6;
 
                 for ($i = 1; $i <= $numOfRow; $i++) {
                     echo "<tr>";
@@ -113,7 +113,7 @@
                     echo "</tr>";
                 }
             } else {
-                $numOfRow = ceil($flightCapacity / 7);
+                $numOfRow = $flightCapacity / 7;
 
                 for ($i = 1; $i <= $numOfRow; $i++) {
                     echo "<tr>";

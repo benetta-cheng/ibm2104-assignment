@@ -10,11 +10,11 @@
                     Flights
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Add Flight</a>
-                    <a class="dropdown-item" href="#">Update Flight</a>
+                    <a class="dropdown-item" href="flight.php">Add Flight</a>
+                    <a class="dropdown-item" href="flight-search.php">Search Flight</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Add Flight Schedule</a>
-                    <a class="dropdown-item" href="#">Update Flight Schedule</a>
+                    <a class="dropdown-item" href="flight-schedule.php">Add Flight Schedule</a>
+                    <a class="dropdown-item" href="flight-schedule-search.php">Search Flight Schedule</a>
                 </div>
             </li>
             <li class="nav-item <?php if (isset($page) && $page == "ticketSales") echo "active"; ?> dropdown">
@@ -22,8 +22,9 @@
                     Ticket Sales
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Add</a>
-                    <a class="dropdown-item" href="#">Update</a>
+                    <a class="dropdown-item" href="#">Add Ticker</a>
+                    <a class="dropdown-item" href="#">Search Ticker</a>
+                    <a class="dropdown-item" href="#">Update Ticket Classes</a>
                 </div>
             </li>
             <li class="nav-item <?php if (isset($page) && $page == "flightCrew") echo "active"; ?>">
