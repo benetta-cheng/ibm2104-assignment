@@ -37,7 +37,7 @@ if (isset($_POST['guests'])) {
     if (isset($_POST['departFlight'])) {
         $_SESSION['departFlight'] = $_POST['departFlight'];
     }
-    if (isset($_POST['returnFlight'])) {
+    if (isset($_POST['returnFlight']) && !empty($_POST['returnFlight'])) {
         $_SESSION['returnFlight'] =  $_POST['returnFlight'];
     }
 
