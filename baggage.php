@@ -10,7 +10,6 @@
 <body class="container-fluid">
     <?php
     require("header.php");
-    session_start();
 
     $connection = new mysqli('127.0.0.1', 'admin', null, 'ibm2104_assignment');
 
