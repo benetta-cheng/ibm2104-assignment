@@ -11,8 +11,10 @@
     session_start();
     require("header.php");
 
+    // Create connection with MySQL database
     $connection = new mysqli('127.0.0.1', 'admin', null, 'ibm2104_assignment');
 
+    // Check connection
     if ($connection->connect_error) {
         die("Connection failed: " . $connection->connect_error);
     }
