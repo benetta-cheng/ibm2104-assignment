@@ -1,0 +1,85 @@
+---Customer Accounts---
+Customer Username: aliciayap
+Customer Password: 123456
+
+Customer Username: josephtan
+Customer Password: 123456
+
+Customer Username: adamlee
+Customer Password: 123456
+
+Customer Username: daniellee
+Customer Password: 123456
+
+Customer Username: JohnDoe
+Customer Password: 1234
+
+Customer Username: JohnLim
+Customer Password: 12345
+
+Customer Username: stu0607
+Customer Password: 123456
+
+Customer Username: HarryLewis
+Customer Password: 1234567
+
+Customer Username: AlexM
+Customer Password: Alex1234
+
+Customer Username: HarisC
+Customer Password: Haris1234
+
+Customer Username: KylieDown
+Customer Password: Kylie1234
+
+Customer Username: NatLoh
+Customer Password: Nat1234
+
+---Staff Accounts---
+Staff Email: shao@test.com
+Staff Password: 123456
+
+Staff Email: tang@test.com
+Staff Password: 123456
+
+Staff Email: mei@test.com
+Staff Password: 123456
+
+Staff Email: jason@test.com
+Staff Password: 123456
+ 
+Staff Email: sophia@test.com
+Staff Password: 123456
+
+Staff Email: vinita@test.com
+Staff Password: 123456
+
+Staff Email: hannah@test.com
+Staff Password: 123456
+
+Staff Email: kaitlyn@test.com
+Staff Password: 123456
+
+Staff Email: maya@test.com
+Staff Password: 123456
+
+Staff Email: teoh@test.com
+Staff Password: 123456
+
+Staff Email: eugene@test.com
+Staff Password: 123456
+
+Staff Email: jenna@test.com
+Staff Password: 123456
+
+Staff Email: irhan@test.com
+Staff Password: 123456
+
+Staff Email: diana@test.com
+Staff Password: 123456
+
+Staff Email: ameena@test.com
+Staff Password: 123456
+
+Staff Email: fatimah@test.com
+Staff Password: 123456
