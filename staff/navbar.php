@@ -22,9 +22,9 @@
                     Ticket Sales
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Add Ticker</a>
-                    <a class="dropdown-item" href="#">Search Ticker</a>
-                    <a class="dropdown-item" href="#">Update Ticket Classes</a>
+                    <a class="dropdown-item" href="flight-ticket.php">Add Ticket</a>
+                    <a class="dropdown-item" href="flight-ticket-search.php">Search Ticket</a>
+                    <a class="dropdown-item" href="ticket-class.php">Update Ticket Classes</a>
                 </div>
             </li>
             <li class="nav-item <?php if (isset($page) && $page == "flightCrew") echo "active"; ?>">

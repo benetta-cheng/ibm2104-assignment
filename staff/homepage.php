@@ -40,12 +40,12 @@
                     <h5 class="card-title">Ticket Sales</h5>
                     <p class="card-text">Add and update the flight ticket records and the prices for different classes of seatings in this module</p>
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                        Access
+                        Flight Ticket
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Add Ticket</a>
-                        <a class="dropdown-item" href="#">Search Ticket</a>
-                        <a class="dropdown-item" href="#">Update Ticket Classes</a>
+                        <a class="dropdown-item" href="flight-ticket.php">Add Flight Ticket</a>
+                        <a class="dropdown-item" href="flight-ticket-search.php">Search Flight Ticket</a>
+                        <a class="dropdown-item" href="ticket-class.php">Update Flight Ticket Classes</a>
                     </div>
                 </div>
             </div>

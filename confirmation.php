@@ -2,6 +2,7 @@
 $emailInvalid = false;
 if (isset($_POST['email'])) {
     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        session_start();
         $_SESSION['contactEmail'] = $_POST['email'];
         header('Location: payment.php');
         exit();

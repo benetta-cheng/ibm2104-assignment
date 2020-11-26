@@ -4,19 +4,17 @@
 
 <head>
     <?php require('../head.php') ?>
-    <title>AirAsia Staff Portal | Flight Schedule Search</title>
+    <title>AirAsia Staff Portal | Flight Ticket Search</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha512-PMjWzHVtwxdq7m7GIxBot5vdxUY+5aKP9wpKtvnNBZrVv1srI8tU6xvFMzG8crLNcMj/8Xl/WWmo/oAP/40p1g==" crossorigin="anonymous" />
 </head>
 
 <body>
     <?php
-    $page = 'flights';
+    $page = 'ticketSales';
     require('navbar.php');
 
-    // Create connection with MySQL database
     $connection = new mysqli('127.0.0.1', 'admin', null, 'ibm2104_assignment');
 
-    // Check connection
     if ($connection->connect_error) {
         die("Connection failed: " . $connection->connect_error);
     }
@@ -29,12 +27,12 @@
 
     $filterString = [];
 
-    if (isset($_GET['flightRegistration']) && $_GET['flightRegistration'] !== "") {
-        $filterString[] = "registration LIKE '%" . $_GET['flightRegistration'] . "%'";
+    if (!empty($_GET['departLocation']) && $_GET['departLocation'] != "Select") {
+        $filterString[] = "flights.departure = '" . $_GET['departLocation'] . "'";
     }
 
-    if (isset($_GET['flightStatus']) && $_GET['flightStatus'] != "Any") {
-        $filterString[] = "status = '" . $_GET['flightStatus'] . "'";
+    if (!empty($_GET['arrivalLocation']) && $_GET['arrivalLocation'] != "Select") {
+        $filterString[] = "flights.arrival = '" . $_GET['arrivalLocation'] . "'";
     }
 
     if (!empty($_GET['departDate'])) {
@@ -43,14 +41,6 @@
 
     if (!empty($_GET['arrivalDate'])) {
         $filterString[] = "DATE(flight_schedules.arrive_dateTime) = '" . date("Y-m-d", strtotime($_GET['arrivalDate'])) . "'";
-    }
-
-    if (!empty($_GET['departLocation']) && $_GET['departLocation'] != "Any") {
-        $filterString[] = "flights.departure = '" . $_GET['departLocation'] . "'";
-    }
-
-    if (!empty($_GET['arrivalLocation']) && $_GET['arrivalLocation'] != "Any") {
-        $filterString[] = "flights.arrival = '" . $_GET['arrivalLocation'] . "'";
     }
 
     if (!empty($filterString)) {
@@ -78,7 +68,7 @@
 
     // Declare list of airports
     $airports = [
-        "Any",
+        "Select",
         "Adelaide Airport (YPAD)",
         "Brunei International Airport (WBSB)",
         "Beijing Capital International Airport (ZBAA)",
@@ -95,36 +85,27 @@
         "Iloilo International Airport (RPVI)",
         "Incheon International Airport (RKSI)"
     ];
-
-    $flightStatuses = [
-        "Any",
-        "Scheduled",
-        "Delayed",
-        "Departed",
-        "In Air",
-        "Expected",
-        "Diverted",
-        "Recovery",
-        "Landed",
-        "Arrived",
-        "Cancelled"
-    ]
     ?>
     <div class="container-fluid p-3">
-        <h3>Flight Schedules | Search</h3>
-        <form action="flight-schedule-search.php" method="GET">
+        <h3>Flight Ticket | Search</h3>
+        <form action="flight-ticket-search.php" method="GET">
             <div class="form-row">
                 <div class="form-group col-3">
-                    <label for="flightRegistration">Flight Registration</label>
-                    <!-- Display previous data if there is previous data -->
-                    <input type="text" class="form-control" value="<?php echo $_GET['flightRegistration'] ?? ""; ?>" id="flightRegistration" name="flightRegistration">
+                    <label for="departLocation">Departure Location</label>
+                    <select id="departLocation" class="form-control" name="departLocation">
+                        <?php
+                        foreach ($airports as $airport) {
+                            echo "<option " . ((isset($_GET['departLocation']) && $_GET['departLocation'] == $airport) ? "selected" : "") . ">$airport</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group col-3">
-                    <label for="flightStatus">Flight Status</label>
-                    <select id="flightStatus" class="form-control" name="flightStatus">
+                    <label for="arrivalLocation">Arrival Location</label>
+                    <select id="arrivalLocation" class="form-control" name="arrivalLocation">
                         <?php
-                        foreach ($flightStatuses as $flightStatus) {
-                            echo "<option " . ((isset($_GET['flightStatus']) && $_GET['flightStatus'] == $flightStatus) ? "selected" : "") . ">$flightStatus</option>";
+                        foreach ($airports as $airport) {
+                            echo "<option " . ((isset($_GET['arrivalLocation']) && $_GET['arrivalLocation'] == $airport) ? "selected" : "") . ">$airport</option>";
                         }
                         ?>
                     </select>
@@ -151,49 +132,27 @@
                     </div>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group col-3">
-                    <label for="departLocation">Departure Location</label>
-                    <select id="departLocation" class="form-control" name="departLocation">
-                        <?php
-                        foreach ($airports as $airport) {
-                            echo "<option " . ((isset($_GET['departLocation']) && $_GET['departLocation'] == $airport) ? "selected" : "") . ">$airport</option>";
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="form-group col-3">
-                    <label for="arrivalLocation">Arrival Location</label>
-                    <select id="arrivalLocation" class="form-control" name="arrivalLocation">
-                        <?php
-                        foreach ($airports as $airport) {
-                            echo "<option " . ((isset($_GET['arrivalLocation']) && $_GET['arrivalLocation'] == $airport) ? "selected" : "") . ">$airport</option>";
-                        }
-                        ?>
-                    </select>
-                </div>
-            </div>
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
         <?php if ($totalRecords > 0) { ?>
             <table class="table table-hover mt-5 border-bottom">
                 <thead>
                     <tr>
-                        <th>Flight Schedule Number</th>
-                        <th>Flight Registration</th>
+                        <th>Flight Ticket Number</th>
                         <th>Departure Date and Time</th>
                         <th>Arrival Date and Time</th>
-                        <th>Status</th>
+                        <th>Departure Location</th>
+                        <th>Arrival Location</th>
                     </tr>
                 </thead>
                 <?php
-                while ($flightSchedule = $result->fetch_assoc()) {
-                    echo '<tr style="cursor: pointer;" onclick="window.location = \'' . 'flight-schedule.php?id=' . $flightSchedule['id'] . '\';">';
-                    echo "<td>" . $flightSchedule['id'] . "</td>";
-                    echo "<td>" . $flightSchedule['registration'] . "</td>";
-                    echo "<td>" . $flightSchedule['depart_dateTime'] . "</td>";
-                    echo "<td>" . $flightSchedule['arrive_dateTime'] . "</td>";
-                    echo "<td>" . $flightSchedule['status'] . "</td>";
+                while ($flightTicket = $result->fetch_assoc()) {
+                    echo '<tr style="cursor: pointer;" onclick="window.location = \'' . 'flight-ticket.php?id=' . $flightTicket['id'] . '\';">';
+                    echo "<td>" . $flightTicket['id'] . "</td>";
+                    echo "<td>" . $flightTicket['depart_dateTime'] . "</td>";
+                    echo "<td>" . $flightTicket['arrive_dateTime'] . "</td>";
+                    echo "<td>" . $flightTicket['departure'] . "</td>";
+                    echo "<td>" . $flightTicket['arrival'] . "</td>";
                     echo "</tr>";
                 }
                 ?>
@@ -237,7 +196,6 @@
         $connection->close();
         ?>
     </div>
-
     <?php require('../scripts.php') ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-2JBCbWoMJPH+Uj7Wq5OLub8E5edWHlTM4ar/YJkZh3plwB2INhhOC3eDoqHm1Za/ZOSksrLlURLoyXVdfQXqwg==" crossorigin="anonymous"></script>

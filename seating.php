@@ -8,6 +8,7 @@
 
 <body class="container-fluid">
     <?php
+    session_start();
     require("header.php");
 
     $connection = new mysqli('127.0.0.1', 'admin', null, 'ibm2104_assignment');
@@ -23,7 +24,7 @@
     }
 
     $takenSeats = [];
-    // Get all seats that have been taken
+    // Get all seats that haFCAe been taken
     $takenSeatsResults = $connection->query("SELECT seat_no FROM flight_tickets WHERE schedule_no = '$flightScheduleId'");
     if ($takenSeatsResults->num_rows > 0) {
         while ($seat = $takenSeatsResults->fetch_assoc()) {
