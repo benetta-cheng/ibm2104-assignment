@@ -36,33 +36,6 @@ Customer Username: NatLoh
 Customer Password: Nat1234
 
 ---Staff Accounts---
-Staff Email: shao@test.com
-Staff Password: 123456
-
-Staff Email: tang@test.com
-Staff Password: 123456
-
-Staff Email: mei@test.com
-Staff Password: 123456
-
-Staff Email: jason@test.com
-Staff Password: 123456
- 
-Staff Email: sophia@test.com
-Staff Password: 123456
-
-Staff Email: vinita@test.com
-Staff Password: 123456
-
-Staff Email: hannah@test.com
-Staff Password: 123456
-
-Staff Email: kaitlyn@test.com
-Staff Password: 123456
-
-Staff Email: maya@test.com
-Staff Password: 123456
-
 Staff Email: teoh@test.com
 Staff Password: 123456
 Staff Management: Manager
@@ -86,6 +59,3 @@ Staff Management: Manager
 Staff Email: ameena@test.com
 Staff Password: 123456
 Staff Management: Manager
-
-Staff Email: fatimah@test.com
-Staff Password: 123456
