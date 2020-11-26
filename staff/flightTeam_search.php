@@ -162,7 +162,7 @@ if (isset($_GET['id']) && $_GET['id'] !== "") {
     }
 
     //If there is no flight attendant
-    if (empty($_GET['flightAttendantID'])) {
+    if (empty($_GET['flightAttendantID']) && !empty($_GET['pilotID']) && !empty($_GET['coPilotID'])) {
         $allowSave['attendant'][0] = 0;
         echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>";
         echo "<strong>Error submitting!</strong> There must be atleast one flight attendant.";

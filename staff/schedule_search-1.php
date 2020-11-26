@@ -166,7 +166,7 @@
                 <?php
                 while ($flightSchedule = $result->fetch_assoc()) {
                     echo '<tr onclick="window.location = \'' . 'flightTeam_search.php?id=' . $flightSchedule['id'] . '\';">';
-                    echo "<td>" . $flightSchedule['registration'] . "</td>";
+                    echo "<td>" . $flightSchedule['flight_no'] . "</td>";
                     echo "<td>" . $flightSchedule['depart_dateTime'] . "</td>";
                     echo "<td>" . $flightSchedule['arrive_dateTime'] . "</td>";
                     echo "<td>" . $flightSchedule['status'] . "</td>";
