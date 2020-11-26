@@ -24,6 +24,8 @@ if (isset($_SESSION['customerId'])) {
     } else {
         $error = true;
     }
+
+    $connection->close();
 }
 ?>
 <!DOCTYPE html>

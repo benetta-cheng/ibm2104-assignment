@@ -129,10 +129,10 @@
             $returnDate = date("Y-m-d", strtotime($_GET['returnDate']));
 
             // Select all flight schedules that still have enough seats for the number of guests
-            $matchingDepartFlightSchedules = $connection->query("SELECT flight_schedules.*, flights.departure, flights.arrival, flights.capacity, flights.type, (SELECT COUNT(*) FROM flight_tickets WHERE flight_tickets.schedule_no = flight_schedules.id) AS ticketNum FROM flight_schedules INNER JOIN flights ON flight_schedules.flight_no = flights.id WHERE DATE(flight_schedules.depart_dateTime) = '$returnDate' AND flights.departure = '$arrivalLocation' AND flights.arrival = '$departLocation' HAVING ticketNum + $guestNumber < flights.capacity");
+            $matchingReturnFlightSchedules = $connection->query("SELECT flight_schedules.*, flights.departure, flights.arrival, flights.capacity, flights.type, (SELECT COUNT(*) FROM flight_tickets WHERE flight_tickets.schedule_no = flight_schedules.id) AS ticketNum FROM flight_schedules INNER JOIN flights ON flight_schedules.flight_no = flights.id WHERE DATE(flight_schedules.depart_dateTime) = '$returnDate' AND flights.departure = '$arrivalLocation' AND flights.arrival = '$departLocation' HAVING ticketNum + $guestNumber < flights.capacity");
 
-            if ($matchingDepartFlightSchedules->num_rows > 0) {
-                while ($flightSchedule = $matchingDepartFlightSchedules->fetch_assoc()) {
+            if ($matchingReturnFlightSchedules->num_rows > 0) {
+                while ($flightSchedule = $matchingReturnFlightSchedules->fetch_assoc()) {
                     $flightScheduleId = $flightSchedule['id'];
                     /*
                 Ticket classes ID:
@@ -295,7 +295,7 @@
         ?>
 
         <?php if (isset($_GET['returnDate']) && !empty($_GET['returnDate'])) { ?>
-            <p class="mt-5">Return Flights</p>
+            <p id="returnFlightLabel" class="mt-5">Return Flights</p>
             <?php if (isset($returnFlightSchedules)) { ?>
                 <table class="table border-bottom border-right border-left table-hover" id="returnFlights">
                     <?php
@@ -343,7 +343,7 @@
             $(this).addClass('table-active').siblings().removeClass('table-active');
             $("input[name='departFlight']").val($(this).attr("data-id"));
 
-            if ($("#returnFlights").length) {
+            if ($("#returnFlightLabel").length) {
                 if ($("input[name='returnFlight']").val()) {
                     $("input[value='Next']").attr('type', 'submit');
                 }

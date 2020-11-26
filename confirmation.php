@@ -23,7 +23,6 @@ if (isset($_POST['email'])) {
 <body class="container-fluid">
     <?php
     require("header.php");
-    session_start();
 
     for ($i = 1; $i <= count($_SESSION['guests']); $i++) {
         if (isset($_POST['guestDepartBaggage'][$i])) {
