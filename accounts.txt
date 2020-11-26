@@ -1,3 +1,5 @@
+NOTE: The database name must be 'ibm2104_assignment' with ip = '127.0.0.1', the account must be 'admin' with no password.
+
 ---Customer Accounts---
 Customer Username: aliciayap
 Customer Password: 123456
