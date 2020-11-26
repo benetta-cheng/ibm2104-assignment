@@ -24,7 +24,7 @@
     }
 
     $takenSeats = [];
-    // Get all seats that haFCAe been taken
+    // Get all seats that have been taken
     $takenSeatsResults = $connection->query("SELECT seat_no FROM flight_tickets WHERE schedule_no = '$flightScheduleId'");
     if ($takenSeatsResults->num_rows > 0) {
         while ($seat = $takenSeatsResults->fetch_assoc()) {

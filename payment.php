@@ -137,6 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     ?>
 
+    <!-- Payment form -->
     <form action="payment.php" method="POST">
         <div class="row mb-5">
             <div class="col-2">
