@@ -65,21 +65,27 @@ Staff Password: 123456
 
 Staff Email: teoh@test.com
 Staff Password: 123456
+Staff Management: Manager
 
 Staff Email: eugene@test.com
 Staff Password: 123456
+Staff Management: Normal Management
 
 Staff Email: jenna@test.com
 Staff Password: 123456
+Staff Management: Superior
 
 Staff Email: irhan@test.com
 Staff Password: 123456
+Staff Management: Superior
 
 Staff Email: diana@test.com
 Staff Password: 123456
+Staff Management: Manager
 
 Staff Email: ameena@test.com
 Staff Password: 123456
+Staff Management: Manager
 
 Staff Email: fatimah@test.com
 Staff Password: 123456
