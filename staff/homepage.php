@@ -53,7 +53,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Flight Crew</h5>
                     <p class="card-text">Add and update the pilot, co-pilot and flight attendants’ assigned to a flight schedule in this module</p>
-                    <a href="#" class="btn btn-primary" type="button">Access</a>
+                    <a href="schedule_search-1.php" class="btn btn-primary" type="button">Access</a>
                 </div>
             </div>
         </div>
@@ -62,14 +62,14 @@
                 <div class="card-body">
                     <h5 class="card-title">Boarding Status</h5>
                     <p class="card-text">Check the boarding status of each flight in this module</p>
-                    <a href="#" class="btn btn-primary" type="button">Access</a>
+                    <a href="MonitorBoardingSearch.php" class="btn btn-primary" type="button">Access</a>
                 </div>
             </div>
             <div class="card ml-4 col-3">
                 <div class="card-body">
                     <h5 class="card-title">Reports</h5>
                     <p class="card-text">Generate flight reports, sales report and other related reports in this module</p>
-                    <a href="#" class="btn btn-primary" type="button">Access</a>
+                    <a href="MonitorFlightReportSearch.php" class="btn btn-primary" type="button">Access</a>
                 </div>
             </div>
         </div>

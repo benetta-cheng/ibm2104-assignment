@@ -34,7 +34,7 @@
             <div class="card-body">
                 <h5 class="card-title">Check-In</h5>
                 <p class="card-text">Perform online check-in here a few hours before boarding your flight. All you need is your booking id.</p>
-                <a href="#" class="btn btn-primary">Check-in</a>
+                <a href="check-in-1.php" class="btn btn-primary">Check-in</a>
             </div>
         </div>
     </div>

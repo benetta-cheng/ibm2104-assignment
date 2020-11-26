@@ -1,13 +1,20 @@
+<?php
+require('validateLogin.php');
+if ($_GET['reportType'] == "Ticket Sales Report") {
+    header('Location: MonitorFlightReport.php?reportType=Ticket Sales Report');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 
 <head>
-    <?php require('head.php') ?>
+    <?php require('../head.php') ?>
     <title>Sales of Flight Search Results</title>
 </head>
 
 <body class="d-flex flex-column h-100">
-    <?php require("header.php");
+    <?php require('navbar.php');
 
     $connection = new mysqli("127.0.0.1", "admin", null, "ibm2104_assignment");
     $query = "SELECT flights.type, flights.departure, flights.arrival,flight_schedules.id, flight_schedules.flight_no, flight_schedules.status, flight_schedules.depart_dateTime, flight_schedules.arrive_dateTime  FROM flight_schedules INNER JOIN flights on flight_schedules.flight_no = flights.id";
@@ -81,7 +88,7 @@
         </form>
     </div>
 
-    <?php require('scripts.php') ?>
+    <?php require('../scripts.php') ?>
 </body>
 
 </html>

@@ -1,15 +1,16 @@
+<?php require('validateLogin.php'); ?>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 
 <head>
-    <?php require('head.php') ?>
+    <?php require('../head.php') ?>
     <title>Boarding Search</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha512-PMjWzHVtwxdq7m7GIxBot5vdxUY+5aKP9wpKtvnNBZrVv1srI8tU6xvFMzG8crLNcMj/8Xl/WWmo/oAP/40p1g==" crossorigin="anonymous" />
 </head>
 
 <body class="d-flex flex-column h-100">
     <?php
-    require("header.php");
+    require('navbar.php');
 
     //Arrays
     $status = [
@@ -46,7 +47,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="departureDate">Departure Date:</label>
-                        <div class="col input-group date" id="departureDate" data-target-input="nearest">
+                        <div class="input-group date" id="departureDate" data-target-input="nearest">
                             <input name="departureDate" id="departureDate" type="text" class="form-control datetimepicker-input" data-target="departureDate" />
                             <div class="input-group-append" data-target="#departureDate" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i>
@@ -58,7 +59,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="arrivalDate">Arrival Date:</label>
-                        <div class="col input-group date" id="arrivalDate" data-target-input="nearest">
+                        <div class="input-group date" id="arrivalDate" data-target-input="nearest">
                             <input name="arrivalDate" id="arrivalDate" type="text" class="form-control datetimepicker-input" data-target="arrivalDate" />
                             <div class="input-group-append" data-target="#arrivalDate" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i>
@@ -76,7 +77,7 @@
         </form>
     </div>
 
-    <?php require('scripts.php') ?>
+    <?php require('../scripts.php') ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-2JBCbWoMJPH+Uj7Wq5OLub8E5edWHlTM4ar/YJkZh3plwB2INhhOC3eDoqHm1Za/ZOSksrLlURLoyXVdfQXqwg==" crossorigin="anonymous"></script>
     <script type="text/javascript">

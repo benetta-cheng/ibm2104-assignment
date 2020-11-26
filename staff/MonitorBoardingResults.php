@@ -1,14 +1,15 @@
+<?php require('validateLogin.php'); ?>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <?php $connrction = new mysqli("127.0.0.1", "root", null, "ibm2104_assignment"); ?>
 
 <head>
-    <?php require('head.php') ?>
+    <?php require('../head.php') ?>
     <title>Boarding Search Results</title>
 </head>
 
 <body class="d-flex flex-column h-100">
-    <?php require("header.php");
+    <?php require('navbar.php');
 
     $connection = new mysqli('127.0.0.1', 'admin', null, 'ibm2104_assignment');
     $query = "SELECT flight_tickets.seat_no, flight_tickets.passenger_name, flight_tickets.ic_passport, flight_tickets.status FROM flight_schedules INNER JOIN flight_tickets on flight_schedules.flight_no = schedule_no";
@@ -56,7 +57,7 @@
         </form>
     </div>
 
-    <?php require('scripts.php') ?>
+    <?php require('../scripts.php') ?>
 </body>
 
 </html>

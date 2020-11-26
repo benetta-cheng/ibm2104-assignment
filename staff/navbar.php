@@ -28,13 +28,13 @@
                 </div>
             </li>
             <li class="nav-item <?php if (isset($page) && $page == "flightCrew") echo "active"; ?>">
-                <a class="nav-link" href="#">Flight Crew</a>
+                <a class="nav-link" href="schedule_search-1.php">Flight Crew</a>
             </li>
             <li class="nav-item <?php if (isset($page) && $page == "boardingStatus") echo "active"; ?>">
-                <a class="nav-link" href="#">Boarding Status</a>
+                <a class="nav-link" href="MonitorBoardingSearch.php">Boarding Status</a>
             </li>
             <li class="nav-item <?php if (isset($page) && $page == "reports") echo "active"; ?>">
-                <a class="nav-link" href="#">Reports</a>
+                <a class="nav-link" href="MonitorFlightReportSearch.php">Reports</a>
             </li>
         </ul>
         <ul class="navbar-nav">

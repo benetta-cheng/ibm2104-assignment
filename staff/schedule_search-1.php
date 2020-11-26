@@ -7,9 +7,9 @@
     <title>Flight Schedule | Search</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha512-PMjWzHVtwxdq7m7GIxBot5vdxUY+5aKP9wpKtvnNBZrVv1srI8tU6xvFMzG8crLNcMj/8Xl/WWmo/oAP/40p1g==" crossorigin="anonymous" />
     <style>
-      tr{
-        cursor :pointer;
-      }
+        tr {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -17,9 +17,9 @@
     <?php
     require('navbar.php');
 
-    $connection = new mysqli("localhost", "root", null, "IBM2104-Assignment"); //SUBJECT TO CHANGE DB NAME
+    $connection = new mysqli("localhost", "admin", null, "ibm2104_assignment");
     if ($connection->connect_error) {
-      die("Connection failed: " . $connection->connect_error);
+        die("Connection failed: " . $connection->connect_error);
     }
 
     // Select all flight schedules that
@@ -27,12 +27,16 @@
 
     $filterString = [];
 
-    if (isset($_GET['flightRegistration']) && $_GET['flightRegistration'] !== "") {
-        $filterString[] = "registration LIKE '%" . $_GET['flightRegistration'] . "%'";
+    if (isset($_GET['flightNumber']) && $_GET['flightNumber'] !== "") {
+        $filterString[] = "flight_no =" . $_GET['flightNumber'];
     }
 
-    if (isset($_GET['flightStatus']) && $_GET['flightStatus'] != "Any") {
-        $filterString[] = "status = '" . $_GET['flightStatus'] . "'";
+    if (isset($_GET['flightStatus'])) {
+        if ($_GET['flightStatus'] == "Any") {
+            $filterString[] = "(status = 'Scheduled' OR status = 'Delayed')";
+        } else {
+            $filterString[] = "status = '" . $_GET['flightStatus'] . "'";
+        }
     }
 
     if (!empty($_GET['departDate'])) {
@@ -87,9 +91,9 @@
         <form action="schedule_search-1.php" method="GET">
             <div class="form-row">
                 <div class="form-group col-3">
-                    <label for="flightRegistration">Flight Number</label>
+                    <label for="flightNumber">Flight Number</label>
                     <!-- Display previous data if there is previous data -->
-                    <input type="text" class="form-control" value="<?php echo $_GET['flightRegistration'] ?? ""; ?>" id="flightRegistration" name="flightRegistration">
+                    <input type="text" class="form-control" value="<?php echo $_GET['flightNumber'] ?? ""; ?>" id="flightNumber" name="flightNumber">
                 </div>
                 <div class="form-group col-3">
                     <label for="flightStatus">Departure Location</label>
@@ -177,7 +181,10 @@
         ?>
     </div>
 
-    <?php require('../scripts.php') ?>
+    <?php
+    $connection->close();
+    require('../scripts.php')
+    ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-2JBCbWoMJPH+Uj7Wq5OLub8E5edWHlTM4ar/YJkZh3plwB2INhhOC3eDoqHm1Za/ZOSksrLlURLoyXVdfQXqwg==" crossorigin="anonymous"></script>
     <script type="text/javascript">

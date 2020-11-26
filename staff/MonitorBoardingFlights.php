@@ -1,13 +1,14 @@
+<?php require('validateLogin.php'); ?>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 
 <head>
-    <?php require('head.php') ?>
+    <?php require('../head.php') ?>
     <title>Boarding Search Results</title>
 </head>
 
 <body class="d-flex flex-column h-100">
-    <?php require("header.php");
+    <?php require('navbar.php');
 
     $connection = new mysqli('127.0.0.1', 'admin', null, 'ibm2104_assignment');
     $query = "SELECT flight_schedules.id, flight_schedules.flight_no, flight_schedules.status, flight_schedules.depart_dateTime, flight_schedules.arrive_dateTime FROM flight_schedules";
@@ -67,7 +68,7 @@
         </form>
     </div>
 
-    <?php require('scripts.php') ?>
+    <?php require('../scripts.php') ?>
 </body>
 
 </html>
