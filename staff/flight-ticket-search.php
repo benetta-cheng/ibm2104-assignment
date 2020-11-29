@@ -20,10 +20,10 @@
     }
 
     // Query for getting total number of records
-    $totalRecordsQuery = "SELECT COUNT(*) FROM flight_schedules INNER JOIN flights ON flight_schedules.flight_no = flights.id";
+    $totalRecordsQuery = "SELECT COUNT(*) FROM flight_tickets INNER JOIN flight_schedules ON flight_tickets.schedule_no = flight_schedules.id INNER JOIN flights ON flight_schedules.flight_no = flights.id";
 
     // Select all flight schedules
-    $query = "SELECT flight_schedules.*, flights.registration, flights.departure, flights.arrival FROM flight_schedules INNER JOIN flights ON flight_schedules.flight_no = flights.id";
+    $query = "SELECT flight_tickets.*, flight_schedules.depart_dateTime, flight_schedules.arrive_dateTime, flights.departure, flights.arrival FROM flight_tickets INNER JOIN flight_schedules ON flight_tickets.schedule_no = flight_schedules.id INNER JOIN flights ON flight_schedules.flight_no = flights.id";
 
     $filterString = [];
 
@@ -191,7 +191,7 @@
             </nav>
         <?php
         } else {
-            echo "<p class='mt-4'>No flight schedules found</p>";
+            echo "<p class='mt-4'>No flight tickets found</p>";
         }
         $connection->close();
         ?>
