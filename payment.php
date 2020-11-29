@@ -447,7 +447,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 }
                 foreach ($_SESSION['guests'] as $guest) {
                     $name = $guest['name'];
-                    $dob = $guest['dob'];
+                    $dob = date('Y-m-d', strtotime($guest['dob']));
                     $gender = $guest['gender'];
                     $departSeatNumber = $guest['departFlight']['seat'];
                     $departClass = identifySeatClass($departSeatNumber);
