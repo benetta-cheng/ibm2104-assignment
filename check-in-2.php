@@ -87,6 +87,7 @@
             <a href="check-in-1.php"><button class="btn btn-secondary">Back</button></a>
           </div>
           <div class="col-auto">
+           <a href="check-in-1.php"><button class= "btn btn-primary">Confirm</button></a>
           </div>
         </div>
       </div>
