@@ -16,7 +16,7 @@
     $filterString = [];
 
     if (!empty($_GET['flightNumber'])) {
-        $filterString[] = "flight_no = '" . ($_GET['flightNumber']) . "'";
+        $filterString[] = "id = '" . ($_GET['flightNumber']) . "'";
     }
 
     if (isset($_GET['flightStatus']) && $_GET['flightStatus'] !== "Any Status") {
@@ -56,7 +56,7 @@
                     <?php
                     while ($flight = $result->fetch_assoc()) {
                         echo "<tr style=cursor:pointer onclick=\"window.location = 'MonitorBoardingResults.php?id=" . $flight['id'] . "'\">";
-                        echo "<td class = text-center>" . $flight['flight_no'] . "</td>";
+                        echo "<td class = text-center>" . $flight['id'] . "</td>";
                         echo "<td class = text-center>" . $flight['status'] . "</td>";
                         echo "<td class = text-center>" . $flight['depart_dateTime'] . "</td>";
                         echo "<td class = text-center>" . $flight['arrive_dateTime'] . "</td>";
