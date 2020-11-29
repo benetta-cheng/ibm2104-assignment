@@ -61,7 +61,7 @@ if ($_GET['reportType'] == "Ticket Sales Report") {
                 <table class="table table-hover col">
                     <thead>
                         <tr>
-                            <th class="text-center">Flight No.</th>
+                            <th class="text-center">Flight Schedule No.</th>
                             <th class="text-center">Flight Type</th>
                             <th class="text-center">Departure Location</th>
                             <th class="text-center">Arrival Location</th>

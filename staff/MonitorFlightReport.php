@@ -42,7 +42,7 @@
         <div class="row">
             <div class="card" style="width:100%">
                 <div class="card-body">
-                    <span>Flight Number: </span>
+                    <span>Flight Schedule Number: </span>
                     <span><?php echo $report['id'] ?></span>
                 </div>
                 <div class="card-body">

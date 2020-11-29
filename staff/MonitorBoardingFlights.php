@@ -47,7 +47,7 @@
                 <table class="table table-hover col">
                     <thead>
                         <tr>
-                            <th class="text-center">Flight Number</th>
+                            <th class="text-center">Flight Schedule Number</th>
                             <th class="text-center">Flight Status</th>
                             <th class="text-center">Departure Date</th>
                             <th class="text-center">Arrival Date</th>

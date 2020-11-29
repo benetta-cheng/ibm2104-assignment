@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col">
                     <div class="input-group">
-                        <label for="flightNumber">Flight Number:</label>
+                        <label for="flightNumber">Flight Schedule Number:</label>
                         <div class="input-group">
                             <input name="flightNumber" type="text" class="form-control" aria-label="Flight ID">
                         </div>

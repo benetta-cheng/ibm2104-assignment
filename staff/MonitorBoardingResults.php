@@ -1,7 +1,7 @@
 <?php require('validateLogin.php'); ?>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
-<?php $connrction = new mysqli("127.0.0.1", "root", null, "ibm2104_assignment"); ?>
+<?php $connrction = new mysqli("127.0.0.1", "admin", null, "ibm2104_assignment"); ?>
 
 <head>
     <?php require('../head.php') ?>
@@ -12,12 +12,12 @@
     <?php require('navbar.php');
 
     $connection = new mysqli('127.0.0.1', 'admin', null, 'ibm2104_assignment');
-    $query = "SELECT flight_tickets.seat_no, flight_tickets.passenger_name, flight_tickets.ic_passport, flight_tickets.status FROM flight_schedules INNER JOIN flight_tickets on flight_schedules.flight_no = schedule_no";
+    $query = "SELECT flight_tickets.seat_no, flight_tickets.passenger_name, flight_tickets.ic_passport, flight_tickets.status, flight_tickets.schedule_no FROM flight_tickets";
 
     $filterString = [];
 
     if (!empty($_GET['id'])) {
-        $filterString[] = "flight_no = '" . ($_GET['id']) . "'";
+        $filterString[] = "schedule_no = '" . ($_GET['id']) . "'";
     }
 
     if (!empty($filterString)) {
