@@ -113,10 +113,9 @@
     $passengerDOB = mysqli_fetch_array($dobResult);
     if ($dob == strtotime($passengerDOB['date_of_birth'])) {
       if (!empty($dobResult) && $dobResult->num_rows > 0) {
-          $updateQuery = "UPDATE flight_tickets SET ic_passport = '$passportNum', passport_country = '$passportCountry', residence_country = '$countryResidence', status = 'CheckedIn' WHERE id = $ticketID";
-          if (mysqli_query($connection, $updateQuery) === TRUE) 
-            echo '<meta http-equiv="refresh" content="0;url=check-in-2.php?bookingNumber='.$bookingNum.'&email='.$email.'">';
-          }
+        $updateQuery = "UPDATE flight_tickets SET ic_passport = '$passportNum', passport_country = '$passportCountry', residence_country = '$countryResidence', status = 'CheckedIn' WHERE id = $ticketID";
+        if (mysqli_query($connection, $updateQuery) === TRUE)
+          echo '<meta http-equiv="refresh" content="0;url=check-in-2.php?bookingNumber=' . $bookingNum . '&email=' . $email . '">';
       }
     }
   }
