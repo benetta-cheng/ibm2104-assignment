@@ -88,10 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="form-row">
                 <div class="form-group col-3">
                     <label for="registration">Flight Ticket Class</label>
-                    <select id="class" class="form-control" name="ticketClass">
+                    <select id="class" class="form-control <?php if ($ticketClassInvalid) echo "is-invalid"; ?>" name="ticketClass">
                         <?php
                         foreach ($class as $value => $text) {
-                            echo "<option " . ($ticketClass == $value ? 'selected' : '') . "value='" . $value . "'>$text</option>";
+                            echo "<option " . ($ticketClass == $value ? 'selected' : '') . " value='" . $value . "'>$text</option>";
                         }
                         ?>
                     </select>
