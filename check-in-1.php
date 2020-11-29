@@ -59,7 +59,7 @@
         if (strtotime($currentTime) >= strtotime($eligibleTime) && strtotime($currentTime) <= $timestamp) {
 
           $result = mysqli_query($connection, $query);
-          while ($row = mysqli_fetch_array($result)) {
+          $row = mysqli_fetch_array($result);
             echo '<tr onclick="window.location = \'' . 'check-in-2.php?bookingNumber=' . $bookingID . '&email=' . $bookingEmail . '\';">';
             echo "<td col>" . $row['id'] . "</td>";
             echo "<td col>" . $departureLocation . "</td>";
@@ -67,7 +67,7 @@
             echo "<td col>" . $departDateTime . "</td>";
             echo "<td col>" . $arriveDateTime . "</td>";
             echo "</tr>";
-          }
+          
         }
 
         echo "</table>";

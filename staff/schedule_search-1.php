@@ -96,7 +96,7 @@
                     <input type="text" class="form-control" value="<?php echo $_GET['flightNumber'] ?? ""; ?>" id="flightNumber" name="flightNumber">
                 </div>
                 <div class="form-group col-3">
-                    <label for="flightStatus">Departure Location</label>
+                    <label for="flightStatus">Flight Status</label>
                     <select id="flightStatus" class="form-control" name="flightStatus">
                         <?php
                         foreach ($flightStatuses as $flightStatus) {

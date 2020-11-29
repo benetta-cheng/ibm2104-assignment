@@ -87,7 +87,7 @@
             <a href="check-in-1.php"><button class="btn btn-secondary">Back</button></a>
           </div>
           <div class="col-auto">
-            <a href="#"><button class="btn btn-primary">Confirm</button></a>
+            <!-- <a href="#"><button class="btn btn-primary">Confirm</button></a> -->
           </div>
         </div>
       </div>
@@ -119,7 +119,6 @@
         if (!empty($checkResult) && $checkResult->num_rows > 0) {
           $updateQuery = "UPDATE flight_tickets SET status = 'CheckedIn' WHERE id = $ticketID";
           if (mysqli_query($connection, $updateQuery) === TRUE) {
-            echo "Hi";
             $toggleModalCondition = false;
           } else {
             $toggleModalCondition = true;
