@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $class = identifySeatClass($seatNumber);
             if (isset($_GET['id'])) {
                 // ID is provided, this is a update
-                if ($connection->query("UPDATE flight_tickets SET passenger_name='$passengerName', date_of_birth='$passengerDateOfBirth', gender='$passengerGender', schedule_no='$flightScheduleNumber', baggage_limit=$baggageLimit, seat_no=$seatNumber, class=$class WHERE id=" . $_GET['id']) === true) {
+                if ($connection->query("UPDATE flight_tickets SET passenger_name='$passengerName', date_of_birth='$passengerDateOfBirth', gender='$passengerGender', schedule_no='$flightScheduleNumber', baggage_limit=$baggageLimit, seat_no='$seatNumber', class=$class WHERE id=" . $_GET['id']) === true) {
                     $successful = true;
                 } else {
                     echo $connection->error;
