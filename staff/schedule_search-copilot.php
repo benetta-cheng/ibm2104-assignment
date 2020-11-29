@@ -50,8 +50,8 @@
 
         $staffQuery = "SELECT * FROM staff WHERE role = 1";
 
-        if (!empty($_GET['attendantName'])) {
-            $filterString[] = "staff_name LIKE '%" . $_GET['attendantName'] . "%'";
+        if (!empty($_GET['coPilotName'])) {
+            $filterString[] = "staff_name LIKE '%" . $_GET['coPilotName'] . "%'";
         }
 
         if (!empty($_GET['staffID'])) {
