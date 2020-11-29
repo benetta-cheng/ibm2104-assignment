@@ -1,2 +1,2 @@
 <?xml version="1.0"?>
-<bookingDetails><booking><accountCardNumber>123423</accountCardNumber><month>03</month><year>2022</year><CvvCvc>2132</CvvCvc><accountCardName>asdfds</accountCardName></booking></bookingDetails>
+<bookingDetails><booking><accountCardNumber>123456789</accountCardNumber><month>02</month><year>2023</year><CvvCvc>123</CvvCvc><accountCardName>Alicia Yap</accountCardName></booking></bookingDetails>

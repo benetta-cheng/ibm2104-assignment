@@ -87,7 +87,6 @@
             <a href="check-in-1.php"><button class="btn btn-secondary">Back</button></a>
           </div>
           <div class="col-auto">
-            <!-- <a href="#"><button class="btn btn-primary">Confirm</button></a> -->
           </div>
         </div>
       </div>
@@ -114,16 +113,10 @@
     $passengerDOB = mysqli_fetch_array($dobResult);
     if ($dob == strtotime($passengerDOB['date_of_birth'])) {
       if (!empty($dobResult) && $dobResult->num_rows > 0) {
-        $checkDetailsQuery = "SELECT * FROM flight_tickets WHERE id = $ticketID AND ic_passport = '$passportNum' AND passport_country = '$passportCountry' AND residence_country = '$countryResidence' ";
-        $checkResult = mysqli_query($connection, $checkDetailsQuery);
-        if (!empty($checkResult) && $checkResult->num_rows > 0) {
-          $updateQuery = "UPDATE flight_tickets SET status = 'CheckedIn' WHERE id = $ticketID";
-          if (mysqli_query($connection, $updateQuery) === TRUE) {
-            $toggleModalCondition = false;
-          } else {
-            $toggleModalCondition = true;
+          $updateQuery = "UPDATE flight_tickets SET ic_passport = '$passportNum', passport_country = '$passportCountry', residence_country = '$countryResidence', status = 'CheckedIn' WHERE id = $ticketID";
+          if (mysqli_query($connection, $updateQuery) === TRUE) 
+            echo '<meta http-equiv="refresh" content="0;url=check-in-2.php?bookingNumber='.$bookingNum.'&email='.$email.'">';
           }
-        }
       }
     }
   }
