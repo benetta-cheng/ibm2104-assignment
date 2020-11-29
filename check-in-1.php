@@ -29,20 +29,6 @@
       $result = mysqli_query($connection, $query);
 
       if ($result->num_rows > 0) {
-        $resultDetails = mysqli_fetch_array($result);
-        $departDateTime = $resultDetails['depart_dateTime'];
-        $arriveDateTime = $resultDetails['arrive_dateTime'];
-        $departureLocation = $resultDetails['departure'];
-        $arrivalLocation = $resultDetails['arrival'];
-        $bookingID = $resultDetails['id'];
-        $bookingEmail = $resultDetails['email'];
-
-        //Calculate eligible check in time
-        date_default_timezone_set("Singapore");
-        $currentTime = date("Y/m/d h:i:sa");
-        $timestamp = strtotime($departDateTime);
-        $time = $timestamp - (24 * 60 * 60);
-        $eligibleTime = date("Y-m-d H:i:s", $time);
 
         echo "<table class='table table-hover'>";
         echo "<thead class='thead-light'>";
@@ -56,24 +42,29 @@
         echo "</thead>";
 
         //Check if the passenger can do online check in already or not
-        if (strtotime($currentTime) >= strtotime($eligibleTime) && strtotime($currentTime) <= $timestamp) {
+          while($row = mysqli_fetch_array($result)){
+            //Calculate eligible check in time
+            date_default_timezone_set("Singapore");
+            $currentTime = date("Y/m/d h:i:sa");
+            $timestamp = strtotime($row['depart_dateTime']);
+            $time = $timestamp - (24 * 60 * 60);
+            $eligibleTime = date("Y-m-d H:i:s", $time);
 
-          $result = mysqli_query($connection, $query);
-          $row = mysqli_fetch_array($result);
-            echo '<tr onclick="window.location = \'' . 'check-in-2.php?bookingNumber=' . $bookingID . '&email=' . $bookingEmail . '\';">';
+            if (strtotime($currentTime) >= strtotime($eligibleTime) && strtotime($currentTime) <= $timestamp) {
+            echo '<tr onclick="window.location = \'' . 'check-in-2.php?bookingNumber=' . $row['id'] . '&email=' . $row['email'] . '\';">';
             echo "<td col>" . $row['id'] . "</td>";
-            echo "<td col>" . $departureLocation . "</td>";
-            echo "<td col>" . $arrivalLocation . "</td>";
-            echo "<td col>" . $departDateTime . "</td>";
-            echo "<td col>" . $arriveDateTime . "</td>";
+            echo "<td col>" . $row['departure'] . "</td>";
+            echo "<td col>" . $row['arrival'] . "</td>";
+            echo "<td col>" . $row['depart_dateTime'] . "</td>";
+            echo "<td col>" . $row['arrive_dateTime'] . "</td>";
             echo "</tr>";
-          
-        }
+            }
+          }
 
         echo "</table>";
-      } else {
-        echo "<p>You have no bookings to check in</p>";
-      }
+     } else {
+       echo "<p>You have no bookings to check in</p>";
+     }
     } else {
     ?>
       <h3>Booking Number | Search</h3>

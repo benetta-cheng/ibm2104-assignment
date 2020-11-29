@@ -67,7 +67,7 @@
           <?php
 
           //Display customer details
-          $passengerQuery = "SELECT flight_tickets.* FROM flight_tickets INNER JOIN flight_schedules ON flight_tickets.schedule_no = flight_schedules.id WHERE schedule_no = $scheduleID";
+          $passengerQuery = "SELECT flight_tickets.* FROM flight_tickets INNER JOIN flight_schedules ON flight_tickets.schedule_no = flight_schedules.id WHERE booking_no = $bookingNum";
           $resultPassenger = mysqli_query($connection, $passengerQuery);
           while ($row = mysqli_fetch_array($resultPassenger)) {
             if ($row['status'] == "Pending") {
